@@ -1,11 +1,10 @@
 const Wrapper = require("./index.js");
-
 test("wraping_two_words_between_col", () => {
   expect(Wrapper.wrap("wrap wrap", 6)).toBe("wrap\nwrap");
 });
 
 test("wraping_three_words_between_col", () => {
-  expect(Wrapper.wrap("wrap wrap wrap", 6)).toBe("wrap\nwrap\nwrap");
+  expect(Wrapper.wrap("wrap wrap wrap", 11)).toBe("wrap wrap\nwrap");
 });
 
 test("wrapping_a_string_shorter_than_col", () => {
@@ -32,12 +31,14 @@ test("wraping_two_words_with_each_shorter_than_col", () => {
   expect(Wrapper.wrap("wrap wrap", 3)).toBe("wra\np\nwra\np");
 });
 
-test("wrapping_two_words_with_each_same_length_as_col", () => {
-  expect(Wrapper.wrap("wrap wrap", 4)).toBe("wrap\nwrap");
+test("wrapping_several_words_with_a_longer_col_length", () => {
+  expect(Wrapper.wrap("olajumoke can also be called jums i assume", 11)).toBe(
+    "olajumoke\ncan also be\ncalled jums\ni assume"
+  );
 });
 
 test("wrapping_words_with_each_different_lengths", () => {
-  expect(Wrapper.wrap("wrap pores in a warm blanket for a stupendiously long time", 4)).toBe("wrap\npore\ns\nin\na\nwarm\nblan\nket\nfor\na\n\stup\nendi\nousl\ny\nlong\ntime");
+  expect(Wrapper.wrap("wrap pores in a warm blanket for a stupendiously long time", 5)).toBe("wrap\npores\n in a\nwarm\nblank\net\nfor a\n\stupe\nndiou\nsly\nlong\ntime");
 });
 
 

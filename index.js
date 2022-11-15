@@ -1,23 +1,25 @@
+
 class Wrapper {
-  static wrap(line, col) {
+ static wrap(line, col) {
     if (line.length <= col) {
       return line;
     }
-    const pre = line.substring(0, col).indexOf(" ");
+   const pre = line.substring(0, col).lastIndexOf(" ");
     if (pre !== -1) {
-      return (
-        line.substring(0, pre) + "\n" + this.wrap(line.substr(pre + 1), col)
-      );
-    } else if (pre === -1 && line[col] === " ") {
-      return (
-        line.substring(0, col) + "\n" + this.wrap(line.substr(col + 1), col)
-      );
+      if (line.charAt(col) === ' ') {
+        return this.breakStatement(line, col, 1, col)
+      }
+      return this.breakStatement(line, pre, 1, col)
     } else {
-      return line.substring(0, col) + "\n" + this.wrap(line.substr(col), col);
+      return this.breakStatement(line, col, 0, col)
     }
   }
+
+ static breakStatement(line, position, margin, col) {
+    return line.substring(0, position) + "\n" + this.wrap(line.substring(position + margin), col)
+  }
+
 }
-// console.log(Wrapper);
 module.exports = Wrapper;
 
 
