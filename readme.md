@@ -24,7 +24,7 @@ Input: string= "this is a sentence", column= 5
 Output: "this\nis\n\a\nsente\nnce"
 Explanation: 
 Under the given constraints, the string would be split into 5 parts
-- The 3 parts is at each word boundary
+- The first 3 parts is at each word boundary
 - The last 2 parts is a split of 'sentence' into the first 5 letters, 'sente' as per the column provided, then the last part is the 'nce' left of the word
 
 #
