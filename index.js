@@ -5,14 +5,21 @@ class Wrapper {
       return line;
     }
    const pre = line.substring(0, col).lastIndexOf(" ");
-    if (pre !== -1) {
-      if (line.charAt(col) === ' ') {
-        return this.breakStatement(line, col, 1, col)
-      }
-      return this.breakStatement(line, pre, 1, col)
-    } else {
-      return this.breakStatement(line, col, 0, col)
-    }
+   if (pre > 0) {
+     if (line.charAt(0) === " ") {
+       line = line.substr(1);
+       return this.breakStatement(line, pre+1, 1, col);
+     } 
+     if (line.charAt(col) === " ") {
+       return this.breakStatement(line, col, 1, col);
+     }
+     return this.breakStatement(line, pre, 1, col);
+   } else if (pre === 0) {
+     line = line.substr(1);
+     return this.breakStatement(line, col, 1, col);
+   } else {
+     return this.breakStatement(line, col, 0, col);
+   }
   }
 
  static breakStatement(line, position, margin, col) {
