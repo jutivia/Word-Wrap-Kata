@@ -18,7 +18,7 @@ Input: string= "this is a sentence", column= 5
 Output: "this\nis a\nsente\nnce"
 Explanation: 
 Under the given constraints, the string would be split into 4 parts
-- The first 2 parts are at word count.
+- The first 2 parts are at column count.
 - The last 2 parts is a split of 'sentence' into the first 5 letters, 'sente' as per the column provided, then the last part is the 'nce' left of the word
 
 #
