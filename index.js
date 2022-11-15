@@ -1,19 +1,19 @@
 class Wrapper {
-  static wrap(line, num) {
-    if (line.length <= num) {
+  static wrap(line, col) {
+    if (line.length <= col) {
       return line;
     }
-    const pre = line.substring(0, num).indexOf(" ");
+    const pre = line.substring(0, col).indexOf(" ");
     if (pre !== -1) {
       return (
-        line.substring(0, pre) + "\n" + this.wrap(line.substr(pre + 1), num)
+        line.substring(0, pre) + "\n" + this.wrap(line.substr(pre + 1), col)
       );
-    } else if (pre === -1 && line[num] === " ") {
+    } else if (pre === -1 && line[col] === " ") {
       return (
-        line.substring(0, num) + "\n" + this.wrap(line.substr(num + 1), num)
+        line.substring(0, col) + "\n" + this.wrap(line.substr(col + 1), col)
       );
     } else {
-      return line.substring(0, num) + "\n" + this.wrap(line.substr(num), num);
+      return line.substring(0, col) + "\n" + this.wrap(line.substr(col), col);
     }
   }
 }
