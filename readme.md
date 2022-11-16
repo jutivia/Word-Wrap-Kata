@@ -26,7 +26,7 @@ Under the given constraints, the string would be split into 4 parts
 ## Constraints:
 1 <= string.length <= 10^4
 ####
-string consists only of lowercase English letters and ' '.
+string consists only of English letters and ' '.
 ####
 1 <= column <= 10^4
 
