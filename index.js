@@ -18,9 +18,6 @@ class Wrapper {
        return this.breakStatement(line, pre, 1, col);
    } else if (pre === 0) {
      line = line.substr(1);
-     if (line.charAt(col) === " ") {
-       return this.breakStatement(line, col, 1, col);
-     }
      return this.breakStatement(line, col, 1, col);
    } else {
      return this.breakStatement(line, col, 0, col);
