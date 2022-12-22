@@ -10,7 +10,7 @@ line with a newline.</i>
 
 #
 ### Thought Process
-I tried solving this kata earlier in november (check the formerSoln.js file for reference), and I remember not being very satisfied with my solution for a number of reasons. I was using a recursion approach, which had a too many conditions to make some actions, dependent on where the `col` stops, including: 
+I tried solving this kata earlier in november (check the formerSoln.js file for reference), and I remember not being very satisfied with my solution for a number of reasons. I was using a recursion approach, which had a too many scattered conditions to make some actions, dependent on where the `col` stops, including: 
     - creating a temporary `pre` variable that stores the last index of an empty space in the string cut at `col` length from the `line` left from the recursions. This `pre` value is then used as a guide to breaking the `line`. Some of the conditions being checked for includes:
     - checking if `pre` is greater than 0, then checking if the `line` starts with an empty space but not end with one, I did a `line.substr(1)`, which returns the whole `line` without the first character (I could have used a trim here), and then calling the `breakStatement` function that returns the previously formatted part of the `line`, plus the new part of the line broken at `col` (based on the break confdition it fits in) plus the recursive wrap function, which takes in what's left of the line, and the col again
     
