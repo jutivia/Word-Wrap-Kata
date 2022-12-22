@@ -21,19 +21,19 @@ test("wrapping_empty_string", () => {
 });
 
 test("wrapping_on_word_longer_than_col", () => {
-  expect(Wrapper.wrap("wrap", 2)).toBe("wr\nap");
+  expect(Wrapper.wrap("wrap", 2)).toBe("wr-\nap");
 });
 
 test("wrapping_one_word_a_lot_longer_than_col", () => {
-  expect(Wrapper.wrap("professionals", 3)).toBe("pro\nfes\nsio\nnal\ns");
+  expect(Wrapper.wrap("professionals", 3)).toBe("pro-\nfes-\nsio-\nnal-\ns");
 });
 
 test("wraping_two_words_in_between_col", () => {
-  expect(Wrapper.wrap("wrap worker", 5)).toBe("wrap\nworke\nr");
+  expect(Wrapper.wrap("wrap worker", 5)).toBe("wrap\nworke-\nr");
 });
 
 test("wraping_two_words_with_each_shorter_than_col", () => {
-  expect(Wrapper.wrap("wrap wrap", 3)).toBe("wra\np\nwra\np");
+  expect(Wrapper.wrap("wrap wrap", 3)).toBe("wra-\np\nwra-\np");
 });
 
 test("wrapping_several_words_with_a_longer_col_length", () => {
@@ -47,7 +47,7 @@ test("wrapping_two_words_with_each_same_length_as_col", () => {
 });
 
 test("wrapping_words_with_each_different_lengths", () => {
-  expect(Wrapper.wrap("wrap pores in a warm blanket for a stupendiously long time", 5)).toBe("wrap\npores\nin a\nwarm\nblank\net\nfor a\n\stupe\nndiou\nsly\nlong\ntime");
+  expect(Wrapper.wrap("wrap pores in a warm blanket for a stupendiously long time", 5)).toBe("wrap\npores\nin a\nwarm\nblank-\net\nfor a\n\stupe-\nndiou-\nsly\nlong\ntime");
 });
 
 
