@@ -32,7 +32,7 @@ I randomly picked up this kata again last week, and I'll be taking you through m
     - lastly, lastSpacePointer is assigned back to null (this is to ensure that if there's no space in the new temp, `lastSpacePointer` doesn't exist)
     -temp is trimmed before adding it to the result to remove any extra spaces around it.
 
-Even though, at worse case, both solutions have the same time complexity of 0(n^2), I think this new approach is cleaner, simpler and more understandable than the former. 
+Even though, at worse case, both solutions have the same time complexity of 0(n^2), I think this new approach is cleaner, simpler and more understandable than the former. Plus, recusrions can be costlier in time and memory during its unstaking operation, as it is slower and heavier compared to a simple loop implementation.
 
 
 #
