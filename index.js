@@ -1,34 +1,37 @@
 
 class Wrapper {
   static wrap(line, col) {
-    if (line.length <= col) {
-      return line;
-   }
-   const pre = line.substring(0, col).lastIndexOf(" ");
-   if (pre > 0) {
-     if (line.charAt(0) === " " && line.charAt(col) !== " ") {
-       line = line.substr(1);
-       return this.breakStatement(line, pre + 1, 1, col);
-     } else if (line.charAt(col) === " " && line.charAt(0) !== " ") {
-       return this.breakStatement(line, col, 1, col);
-     } else if (line.charAt(0) === " " && line.charAt(col) === " ") {
-       line = line.substr(1);
-       return this.breakStatement(line, col - 1, 1, col);
-     }
-       return this.breakStatement(line, pre, 1, col);
-   } else if (pre === 0) {
-     line = line.substr(1);
-     return this.breakStatement(line, col, 1, col);
-   } else {
-     return this.breakStatement(line, col, 0, col);
-   }
+    let temp = "";
+    let result = "";
+    let lastSpacePointer = null;
+    for (let i = 0; i < string.length; i++) {
+      temp += string[i]; //add characters to temp as i loop
+      if (string[i] === " ") lastSpacePointer = temp.length - 1;
+      //if your temp is at capacity offload it to your result
+      if (temp.trim().length >= col) {
+        // if there is a previous space in temp and the current word can't break use previous space
+        if (lastSpacePointer && string[i + 1] !== " ") {
+          result += temp.slice(0, lastSpacePointer).trim() + "\n";
+          temp = temp.slice(lastSpacePointer + 1);
+        }
+        // word can have a clean break or would have a rough break
+        else {
+          const addContinuation = string[i + 1] !== " ";
+          result += temp.trim() + `${addContinuation ? "-\n" : "\n"}`;
+          temp = "";
+        }
+        // reset last space point for new set of temp
+        lastSpacePointer = null;
+      }
+    }
+    result += temp.trim();
+    return result;
   }
-
- static breakStatement(line, position, margin, col) {
-    return line.substring(0, position) + "\n" + this.wrap(line.substring(position + margin), col)
-  }
-
 }
 module.exports = Wrapper;
+
+
+
+
 
 
