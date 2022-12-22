@@ -11,12 +11,12 @@ line with a newline.</i>
 #
 ### Thought Process
 I tried solving this kata earlier in november (check the formerSoln.js file for reference), and I remember not being very satisfied with my solution for a number of reasons. I was using a recursion approach, which had a too many scattered conditions to make some actions, dependent on where the `col` stops, including: 
-    - creating a temporary `pre` variable that stores the last index of an empty space in the string cut at `col` length from the `line` left from the recursions. This `pre` value is then used as a guide to breaking the `line`. Some of the conditions being checked for includes:
-    - checking if `pre` is greater than 0, then checking if the `line` starts with an empty space but not end with one, I did a `line.substr(1)`, which returns the whole `line` without the first character (I could have used a trim here), and then calling the `breakStatement` function that returns the previously formatted part of the `line`, plus the new part of the line broken at `col` (based on the break confdition it fits in) plus the recursive wrap function, which takes in what's left of the line, and the col again
+ - creating a temporary `pre` variable that stores the last index of an empty space in the string cut at `col` length from the `line` left from the recursions. This `pre` value is then used as a guide to breaking the `line`. Some of the conditions being checked for includes:
+ - checking if `pre` is greater than 0, then checking if the `line` starts with an empty space but not end with one, I did a `line.substr(1)`, which returns the whole `line` without the first character (I could have used a trim here), and then calling the `breakStatement` function that returns the previously formatted part of the `line`, plus the new part of the line broken at `col` (based on the break confdition it fits in) plus the recursive wrap function, which takes in what's left of the line, and the col again
     
 Some other conditions for breaking a line included: 
-    - checking if the `line`'s index at `col` is an empty string, but doesn't end with an empty string, then breaking appropriately
-    - checking if the `line` starts with an empty string and the `line`'s index at col is also an empty string, then breaking accordingly, etc
+ - checking if the `line`'s index at `col` is an empty string, but doesn't end with an empty string, then breaking appropriately
+ - checking if the `line` starts with an empty string and the `line`'s index at col is also an empty string, then breaking accordingly, etc
 
 There are a couple more conditions I checked for, and although this approach works quite alright in achieving the goals for this kata (the lines I passed into the Kata broke as it should), I felt like the approach could be improved into a cleaner and more structured logic with more generic edge cases. 
 
